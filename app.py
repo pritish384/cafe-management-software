@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, Response
 from db.database_config import *
-from backend.order import *
+from backend.order import initiate_order
+from backend.sales_period import *
 
 app = Flask(__name__)
 
@@ -15,7 +16,12 @@ def index():
 
 @app.route('/dashboard')
 def dashboard():
-    return render_template('templates/index.html' , active_orders=active_orders)
+    
+    return render_template('templates/index.html' 
+                           , active_orders=active_orders.find_one() 
+                           , stats_admin=stats_admin.find_one() 
+                           , cafe_details=cafe_details.find_one() 
+                           , sales_period=sales_period())
 
 @app.route('/orders' , methods=['GET' , 'POST'])
 def orders():

@@ -72,7 +72,7 @@
               <div class="info-box-content">
                 <span class="info-box-text">Table Occupied</span>
                 <span class="info-box-number">
-                  10 (20 available)
+                  {{ stats_admin['table_occupied'] }} ({{ cafe_details['total_tables'] - stats_admin['table_occupied'] }} available)
                 </span>
               </div>
               <!-- /.info-box-content -->
@@ -86,7 +86,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Likes</span>
-                <span class="info-box-number">41,410</span>
+                <span class="info-box-number">{{ stats_admin['likes'] }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -103,7 +103,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Sales</span>
-                <span class="info-box-number">760</span>
+                <span class="info-box-number">{{ stats_admin['current_sales'] }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -116,7 +116,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">New Members</span>
-                <span class="info-box-number">2,000</span>
+                <span class="info-box-number">{{ stats_admin['new_members'] }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -136,18 +136,7 @@
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
                     <i class="fas fa-minus"></i>
                   </button>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown">
-                      <i class="fas fa-wrench"></i>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" role="menu">
-                      <a href="#" class="dropdown-item">Action</a>
-                      <a href="#" class="dropdown-item">Another action</a>
-                      <a href="#" class="dropdown-item">Something else here</a>
-                      <a class="dropdown-divider"></a>
-                      <a href="#" class="dropdown-item">Separated link</a>
-                    </div>
-                  </div>
+                 
                   <button type="button" class="btn btn-tool" data-card-widget="remove">
                     <i class="fas fa-times"></i>
                   </button>
@@ -158,12 +147,16 @@
                 <div class="row">
                   <div class="col-md-8">
                     <p class="text-center">
-                      <strong>Sales: 1 Jan, 2023 - 30 Jul, 2023</strong>
+                      <strong>Sales: {{ sales_period }}</strong>
                     </p>
 
                     <div class="chart">
                       <!-- Sales Chart Canvas -->
-                      <canvas id="salesChart" height="180" style="height: 180px;"></canvas>
+                      <canvas  id="salesChart" height="180" style="height: 180px;"></canvas>
+                      <script>
+                        var salesChartData = "[320, 480, 650, 220, 750, 910, 150, 890, 430, 580, 270, 990]"
+                      </script>
+                    
                     </div>
                     <!-- /.chart-responsive -->
                   </div>
@@ -173,41 +166,21 @@
                       <strong>Goal Completion</strong>
                     </p>
 
+                    {% for goal in stats_admin['goals'] %}
                     <div class="progress-group">
-                      Visit Cafe
-                      <span class="float-right"><b>160</b>/200</span>
+                      {{ goal['name'] }}
+                      <span class="float-right"><b>{{ goal['completed'] }}</b>/{{ goal['target'] }}</span>
                       <div class="progress progress-sm">
-                        <div class="progress-bar bg-primary" style="width: 80%"></div>
+                        <div id="{{ goal['id'] }}" class="{{ goal['style'] }}"></div>
                       </div>
                     </div>
+                    <script>
+                      var element = document.getElementById("{{ goal['id'] }}");
+                      element.style.width = "{{ goal['completed'] / goal['target'] * 100 }}%";
+                    </script>
+                    {% endfor %}
                     <!-- /.progress-group -->
 
-                    <div class="progress-group">
-                      Complete Purchase
-                      <span class="float-right"><b>310</b>/400</span>
-                      <div class="progress progress-sm">
-                        <div class="progress-bar bg-danger" style="width: 75%"></div>
-                      </div>
-                    </div>
-
-                    <!-- /.progress-group -->
-                    <div class="progress-group">
-                      <span class="progress-text">Visit Website</span>
-                      <span class="float-right"><b>480</b>/800</span>
-                      <div class="progress progress-sm">
-                        <div class="progress-bar bg-success" style="width: 60%"></div>
-                      </div>
-                    </div>
-
-                    <!-- /.progress-group -->
-                    <div class="progress-group">
-                      Send Inquiries
-                      <span class="float-right"><b>250</b>/500</span>
-                      <div class="progress progress-sm">
-                        <div class="progress-bar bg-warning" style="width: 50%"></div>
-                      </div>
-                    </div>
-                    <!-- /.progress-group -->
                   </div>
                   <!-- /.col -->
                 </div>
@@ -412,10 +385,10 @@
 
 
 
-
 <!-- AdminLTE for demo purposes -->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ url_for('static', filename='dist/js/pages/dashboard.js') }}"></script>
+<script src="{{ url_for('static', filename='dist/js/pages/dashboard2.js') }}"></script>
+
 </section>
 </body>
 </html>

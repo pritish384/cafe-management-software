@@ -20,7 +20,5 @@ orders_db = client['orders']
 #collections
 active_orders = orders_db['active_orders']
 closed_orders = orders_db['completed_orders']
-
-
-
-
+stats_admin = admin_cafe_db['stats_admin']
+cafe_details = admin_cafe_db['cafe_details']
