@@ -13,7 +13,14 @@ try:
 except Exception as e:
     print(e)
 
-# admin cafe database
-admin_cafe = client['admin_cafe']
-active_orders = admin_cafe['active_orders']
-closed_orders = admin_cafe['closed_orders']
+#database
+admin_cafe_db = client['admin_cafe']
+orders_db = client['orders']
+
+#collections
+active_orders = orders_db['active_orders']
+closed_orders = orders_db['completed_orders']
+
+
+
+

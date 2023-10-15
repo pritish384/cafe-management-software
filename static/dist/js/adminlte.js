@@ -3102,8 +3102,6 @@ function loadPage(url) {
   // Use history.pushState to change the URL without triggering a full page refresh.
   history.pushState(null, null, url);
 
-
-
   // Load content using AJAX and update the page without a full reload.
   fetchContent(url);
 }
@@ -3121,15 +3119,48 @@ function fetchContent(url) {
       const container = document.getElementById('replace');
       if (container) {
         container.innerHTML = html;
+
+        // Reinitialize JavaScript for the new content
+        initializePage();
       } else {
         console.error('Container element with ID "replace" not found.');
       }
-
-      
-
     })
     .catch(error => {
       console.error('Error:', error);
     });
 }
 
+function initializePage() {
+  // Show/hide extra items when clicking the button
+  $('.toggle-extra-items').on('click', function () {
+    $('.order-table-body').toggleClass('show-extra');
+  });
+
+  // Handle tab button clicks
+  const buttonContainers = document.querySelectorAll(".tab-bar-button-container");
+  buttonContainers.forEach((container) => {
+    const buttons = container.querySelectorAll(".tab-bar-button");
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        buttons.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+      });
+    });
+  });
+
+  // Handle Create Order Popup
+  var popupOverlay = document.getElementById("create-order-popup-overlay");
+  function CreateOrderPopupShow() {
+    popupOverlay.classList.remove("hidden");
+  }
+  function CreateOrderPopupHide() {
+    popupOverlay.classList.add("hidden");
+  }
+  window.CreateOrderPopupShow = CreateOrderPopupShow;
+  window.CreateOrderPopupHide = CreateOrderPopupHide;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  initializePage();
+});

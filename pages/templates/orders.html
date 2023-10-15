@@ -103,12 +103,12 @@
                 <!-- /.info-box -->
                 
             </div>
-            <div class="col-12 col-sm-6 col-md-3">
-                <a href="#" style="min-height: 80px; display: flex; align-items: center; justify-content: center;" class="btn btn-block btn-light">
+            <div id="create-order-btn" class="col-12 col-sm-6 col-md-3">
+                <button onclick="CreateOrderPopupShow()" style="min-height: 80px; display: flex; align-items: center; justify-content: center;" class="btn btn-block btn-light">
                     <span style="font-weight: bold; font-size: 20px;">
                         <i class="fa-solid fa-plus"></i> Create New Order
                     </span>
-                </a>                
+                </button>                
             </div>
         </div>
       </div>
@@ -135,25 +135,64 @@
                 <!-- make a table -->
 
 
-                <div class="order-table">
-                  <table class="table m-0">
+                <div class="order-table order-table-container">
+                  <table class="table m-0 w-100">
                     <thead>
-                      <tr class="order-table-head text-bold text-muted">
+                      <tr class="text-muted">
                         <th>Items</th>
                         <th>Qty</th>
                         <th>Price</th>
                       </tr>
                     </thead>
-                    <tbody class="order-table-head">
-                      <td>Burger</td>
-                      <td>1</td>
-                      <td>5.00</td>
+                    <tbody class="order-table-body">
+                      <tr>
+                        <td>Burger 1</td>
+                        <td>1</td>
+                        <td>5.00</td>
+                      </tr>
+                      <tr>
+                        <td>Burger 2</td>
+                        <td>2</td>
+                        <td>10.00</td>
+                      </tr>
+                      <tr>
+                        <td>Burger 3</td>
+                        <td>3</td>
+                        <td>15.00</td>
+                      </tr>
+                      <tr>
+                        <td>Burger 4</td>
+                        <td>4</td>
+                        <td>20.00</td>
+                      </tr>
+                      <!-- Additional items hidden by default -->
+                      <tr class="extra-item">
+                        <td>Extra Burger 1</td>
+                        <td>1</td>
+                        <td>5.00</td>
+                      </tr>
+                      <tr class="extra-item">
+                        <td>Extra Burger 2</td>
+                        <td>1</td>
+                        <td>5.00</td>
+                      </tr>
+                      <!-- ... Add more extra items here -->
                     </tbody>
                   </table>
-                  <hr class="bg-white">
+                  <div>
+                    <a class="toggle-extra-items">+ 2 more</a>
+                    <hr class="bg-white m-0">
+                  </div>
+                  <br>
+                  <!-- total in bold -->
+                  <span class="text-lg text-bold">Total:</span>
+                  <span class="text-lg text-bold float-right">50.00</span>
                 </div>
-                
-               
+                <br>
+                <div class="order-actions-button-container">
+                  <button href="#" class="order-btn">View Bill</button>
+                  <button href="#" class="order-btn">Edit Order</button>
+                </div>
                 
 
               </div>
@@ -164,8 +203,53 @@
 
         </div>
       </div>
+      <div class="create-order-popup-overlay hidden" id="create-order-popup-overlay">
+        <div class="create-order-popup-box">
+          <span class="text-lg float-left text-bold">Create New Order</span>
+            <button onclick="CreateOrderPopupHide()" class="round-button float-right text-bold" id="close-create-order-popup-btn">&times;</button>
+            <br>
+            <br>
+            <form method="post" onsubmit="handleSubmit()">
+              <div class="curved-bar">
+                <div name="order_type" class="tab-bar-button-container" id="order-type-buttons">
+                    <selection class="tab-bar-button active" value="Dine In">Dine In</selection>
+                    <selection class="tab-bar-button" value="Takeaway">Takeaway</selection>
+                    <selection class="tab-bar-button" value="Delivery">Delivery</selection>
+                </div>
+              </div>
+              <br>
+              <label class="float-left">Guests</label>
+              <input type="number" class="form-control" name="order_guests" placeholder="Number of guests" min="1">
+              <br>
+              <label class="float-left"> Choose Table</label>
+              <select name="table_number" class="form-control">
+                  <option class="order-card-select"></option>
+                  <option class="order-card-select">A1</option>
+                  <option class="order-card-select">A2</option>
+                  <option class="order-card-select">A3</option>
+                  <option class="order-card-select">A4</option>
+                  <option class="order-card-select">A5</option>
+              </select>
+              <input type="hidden" id="order_type" name="order_type">
+              <br>
+              <button type="submit" class="btn btn-block btn-success">Create Order</button>
+          </form>
+          <script>
+            function handleSubmit() {
+               // Get the value of the selection tag's value who has the class active
+                var order_type = document.querySelector(".tab-bar-button.active").getAttribute("value");
+                // Set the value of the hidden input to the value of the selection tag
+                document.getElementById("order_type").value = order_type;
 
-    </section>
+                // Submit the form
+                document.getElementById("create-order-form").submit();
+           }
+           
+         </script>
+        </div>
+    </div>
+
+  </section>
        
 
 

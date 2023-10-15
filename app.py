@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, Response
 from db.database_config import *
+from backend.order import *
 
 app = Flask(__name__)
 
@@ -16,10 +17,21 @@ def index():
 def dashboard():
     return render_template('templates/index.html' , active_orders=active_orders)
 
-@app.route('/orders')
+@app.route('/orders' , methods=['GET' , 'POST'])
 def orders():
-    return render_template('templates/orders.html')
+    if request.method == 'POST':
+        order_type = request.form['order_type']
+        order_guests = request.form['order_guests']
+        table_number = request.form['table_number']
+        order_id = initiate_order(order_type , order_guests , table_number)
+        return render_template('templates/process-order.html' , order_id=order_id)
+        
+    elif request.method == 'GET':
+        return render_template('templates/orders.html')
 
+@app.route('/test')
+def test():
+    return render_template('templates/process-order.html')
 
 @app.errorhandler(404)
 def page_not_found(e):

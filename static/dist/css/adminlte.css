@@ -326,7 +326,9 @@ progress {
 
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
-  height: auto;
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
 }
 
 [type="search"] {
@@ -45713,9 +45715,7 @@ blockquote.quote-gray-dark h6 {
   color: #343a40 !important;
 }
 
-.dark-mode .text-muted {
-  color: #adb5bd !important;
-}
+
 
 .dark-mode .text-lightblue {
   color: #86bad8 !important;
@@ -53068,6 +53068,7 @@ a.text-muted:hover {
   padding: 10px;
   margin-right: 10px;
   justify-content: center;
+  align-items: center;
 
 }
 
@@ -53087,6 +53088,287 @@ a.text-muted:hover {
 }
 
 
-.order-table th, td{
-  border: none  !important; 
+.order-table th, .order-table td {
+  border: none !important;
+  padding: 0px 0px 2px 0px !important;
+}
+
+.order-table-container {
+  position: relative;
+}
+
+
+.order-table-body .extra-item {
+  display: none; /* Hide extra items by default */
+}
+
+.order-table-body.show-extra .extra-item {
+  display: table-row; /* Display extra items when .show-extra class is applied */
+}
+
+.toggle-extra-items{
+  display: flex;
+  align-items: center; /* To vertically center the items */
+  justify-content: center;
+  cursor: pointer;
+  
+}
+
+.order-actions-button-container {
+  display: flex;
+  justify-content: space-between; 
+}
+
+.order-btn {
+  flex-grow: 1;
+  margin-right: 10px;
+  padding: 10px 0;
+  background-color: #e0e0e0;
+  color: #000;
+  text-decoration: none; 
+  border: none;
+  text-align: center;
+  border-color: black;
+  border-radius: 15px;
+}
+
+
+.order-btn:last-child {
+  margin-right: 0; 
+}
+
+
+
+.create-order-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(8px); /* Apply blur effect to the background */
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-order-popup-box {
+  max-width: 40%; /* Set a maximum width for responsiveness */
+  max-height: 80vh; /* Set a maximum height based on viewport height */
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #454d55;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  z-index: 2;
+  color: inherit;
+  overflow: auto; /* Add scrolling if content exceeds max-height */
+}
+
+.round-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border: none;
+  font-size: 24px;
+}
+
+
+/* Change the close button color to red on hover */
+.round-button:hover {
+  color: red;
+}
+
+@media (max-width: 767px) {
+  .create-order-popup-box{
+    max-width: 90%;
+  }
+}
+
+.hidden{
+  display: none;
+}
+
+.curved-bar {
+  width: 370px;
+  height: 55px;
+  background-color: #343a40;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-bar-button-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  padding-left: 5px;
+  gap: 5px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.tab-bar-button {
+  padding: 8px 16px;
+  background-color: #343a40;
+  border: none;
+  border-radius: 10px;
+  color: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.tab-bar-button.active{
+  background-color: #2049ff;
+  color: white;
+  box-shadow: 0 2px 3px 0 rgba(0,0,0,.1);
+  opacity: 1
+}
+
+@media (max-width: 767px) {
+  .curved-bar {
+    width: 100%;
+  }
+
+  .tab-bar-button-container {
+    padding: 10px; /* Add some padding for spacing */
+  }
+
+  .tab-bar-button {
+    padding: 10px 20px; /* Adjust padding for smaller screens */
+    font-size: 16px; /* Adjust font size for smaller screens */
+    border-radius: 5px;
+  }
+}
+
+
+
+.menu-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 160px;
+  padding: 10px;
+}
+
+.menu-category-card{
+  display: flex;
+  height: 90px;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  color: black;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu-category-card.active {
+  background-color: #ffcb44;
+}
+
+
+.menu{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  margin-left: 20px;
+  gap: 10px;
+}
+
+@media (max-width: 767px) {
+  .menu{
+    margin-left: 0;
+  }
+}
+
+
+.menu-card{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  width: 250px;
+  height: 320px;
+  background-color: white;
+  border-radius: 10px;
+  color: black;
+}
+
+.menu-img-container {
+  padding: 10px;
+  overflow: hidden;
+}
+
+.menu-img {
+  border-radius: 10px;
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+}
+
+.menu-card-body{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.menu-item-quantity{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.order-summary-container{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  color: black;
+  z-index: 9999;
+  overflow-y: auto;
+  border-radius: 0px 10px 10px 0px;
+}
+
+
+.order-summary-content{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+
+}
+
+.order-summary-content hr{
+  width: 100%
+}
+
+.hide-scrollbar ::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-section{
+  margin-right: 250px;
+  
+}
+
+.badge-btn{
+  background-color: #f0f4f4;
+  border-radius: 25px;
+}
+
+.proceed-order-btn{
+  background-color: #ffcb44;
+  width: 100%;
+  border-radius: 10px;
+  height: 55px;
+  border: none;
 }

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" class="hide-scrollbar">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orders</title>
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/fontawesome-free/css/all.min.css') }}">
+  <!-- overlayScrollbars -->
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/adminlte.css') }}">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='dist/img/favicon.png') }}">
+
+</head>
+<body class="dark-mode">
+    
+<div class="menu-section">
+    <!-- Navbar -->
+       <nav class="navbar navbar-expand navbar-dark">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <button class="round-button" style="margin-right: 10px;"><i class="fa fa-arrow-left text-sm"></i></button>
+          </li>
+          <span class="text-lg">Choose Menu</span>
+        </ul>
+        
+
+       
+
+        <ul class="navbar-nav ml-auto">
+  
+          <li class="nav-item">
+            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+              <i class="fas fa-expand-arrows-alt"></i>
+            </a>
+          </li>
+        </ul>
+  
+      </nav>
+      <!-- /.navbar -->
+      <!-- left sidebar -->
+      
+      
+    
+
+    <!-- Main content -->
+    <section id="content" class="content">
+      <div class="container-fluid d-flex" style="height: 100vh;">
+        <div class="menu-sidebar bg-light">
+          <div class="menu-category-card active">
+            <span class="text-lg text-bold">All Menu</span>
+            <span class="text-sm text-muted text-bold">20 Items</span>
+          </div>
+          <div class="menu-category-card">
+            <span class="text-lg text-bold">Burger</span>
+            <span class="text-sm text-muted text-bold">20 Items</span>
+          </div>
+          <div class="menu-category-card">
+            <span class="text-lg text-bold">Pizza</span>
+            <span class="text-sm text-muted text-bold">20 Items</span>
+          </div>
+        </div>
+
+        <div class="menu flex-grow-1">
+
+
+          <div class="menu-card">
+            <div class="menu-img-container"> 
+              <img class="menu-img" src="{{ url_for('static', filename='dist/img/burger.png')}}">
+            </div>
+            <div class="menu-card-body">
+              <span class="text-md text-bold">Classic Burger</span>
+              <span class="text-sm text-muted text-bold">juicy patty, mayo, schezwan and a soft bun.</span>
+              <br>
+              <span class="text-md text-bold text-success">₹ 35</span>
+              <div class="menu-item-quantity">
+                <button class="round-button"><i class="fa fa-minus text-sm"></i></button>
+                <span class="text-md text-bold">1</span>
+                <button class="round-button"><i class="fa fa-plus text-sm"></i></button>
+
+              </div>
+            </div>
+          </div>
+          
+          <div class="menu-card">
+            <div class="menu-img-container"> 
+              <img class="menu-img" src="{{ url_for('static', filename='dist/img/burger.png')}}">
+            </div>
+            <div class="menu-card-body">
+              <span class="text-md text-bold">Classic Burger</span>
+              <span class="text-sm text-muted text-bold">juicy patty, mayo, schezwan and a soft bun.</span>
+              <br>
+              <span class="text-md text-bold text-success">₹ 35</span>
+              <div class="menu-item-quantity">
+                <button class="round-button"><i class="fa fa-minus text-sm"></i></button>
+                <span class="text-md text-bold">1</span>
+                <button class="round-button"><i class="fa fa-plus text-sm"></i></button>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="menu-img-container"> 
+              <img class="menu-img" src="{{ url_for('static', filename='dist/img/burger.png')}}">
+            </div>
+            <div class="menu-card-body">
+              <span class="text-md text-bold">Classic Burger</span>
+              <span class="text-sm text-muted text-bold">juicy patty, mayo, schezwan and a soft bun.</span>
+              <br>
+              <span class="text-md text-bold text-success">₹ 35</span>
+              <div class="menu-item-quantity">
+                <button class="round-button"><i class="fa fa-minus text-sm"></i></button>
+                <span class="text-md text-bold">1</span>
+                <button class="round-button"><i class="fa fa-plus text-sm"></i></button>
+
+              </div>
+            </div>
+          </div>
+          
+          <div class="menu-card">
+            <div class="menu-img-container"> 
+              <img class="menu-img" src="{{ url_for('static', filename='dist/img/burger.png')}}">
+            </div>
+            <div class="menu-card-body">
+              <span class="text-md text-bold">Classic Burger</span>
+              <span class="text-sm text-muted text-bold">juicy patty, mayo, schezwan and a soft bun.</span>
+              <br>
+              <span class="text-md text-bold text-success">₹ 35</span>
+              <div class="menu-item-quantity">
+                <button class="round-button"><i class="fa fa-minus text-sm"></i></button>
+                <span class="text-md text-bold">1</span>
+                <button class="round-button"><i class="fa fa-plus text-sm"></i></button>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="menu-img-container"> 
+              <img class="menu-img" src="{{ url_for('static', filename='dist/img/burger.png')}}">
+            </div>
+            <div class="menu-card-body">
+              <span class="text-md text-bold">Classic Burger</span>
+              <span class="text-sm text-muted text-bold">juicy patty, mayo, schezwan and a soft bun.</span>
+              <br>
+              <span class="text-md text-bold text-success">₹ 35</span>
+              <div class="menu-item-quantity">
+                <button class="round-button"><i class="fa fa-minus text-sm"></i></button>
+                <span class="text-md text-bold">1</span>
+                <button class="round-button"><i class="fa fa-plus text-sm"></i></button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+  
+  
+  <div class="order-summary-container">
+    <div class="order-summary-content">
+      <span class="text-lg text-bold">Order #1</span>
+      <span class="text-sm text-muted text-bold">Dine In</span>
+      <span class="order-logo bg-success elevation-1 text-bold" style="position: fixed; top: 20px; right: 10px;">A1</span>
+      <br>
+      <span class="text-md text-muted text-bold">13 October 2023</span>
+      <hr class="bg-black">
+      <span class="text-lg text-bold">Order Details</span>
+      <br>
+      <div class="order-summary-item">
+        <span class="text-md text-bold">Classic Burger</span>
+        <span class="text-lg text-success text-bold float-right">x1</span>
+        <br>
+        <br>
+        <!-- notes button -->
+        <button class="btn badge-btn text-success text-bold float-left"><i class="fas fa-edit"></i>  Notes</button>
+        <span class="text-md text-bold float-right">₹ 35</span>
+        <br>
+        <hr class="bg-black">
+        <span class="text-md text-bold">Items (1)</span>
+        <span class="text-lg text-bold float-right">₹ 35</span>
+        <br>
+        <br>
+        <span class="text-md text-bold">GST (5%)</span>
+        <span class="text-lg text-bold float-right text-danger">₹ 2</span>
+        <br>
+        <hr class="bg-black">
+        <button class="proceed-order-btn"><span class="text-bold text-lg">₹37</span> <span class="text-md">Proceed to Payment</span> <i class="fa-solid fa-arrow-right"></i></button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+
+
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="{{ url_for('static', filename='plugins/jquery/jquery.min.js') }}"></script>
+    <!-- Bootstrap -->
+    <script src="{{ url_for('static', filename='plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+    <!-- overlayScrollbars -->
+    <script src="{{ url_for('static', filename='plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+    <!-- AdminLTE App -->
+    <script src="{{ url_for('static', filename='dist/js/adminlte.js') }}"></script>
+
+
+
+
+    <!-- PAGE plugins -->
+    <!-- jQuery Mapael -->
+    <script src="{{ url_for('static', filename='plugins/jquery-mousewheel/jquery.mousewheel.js') }}"></script>
+
+
+
+    <!-- ChartJS -->
+    <script src="{{ url_for('static', filename='plugins/chart.js/Chart.min.js') }}"></script>
+
+
+
+
+    <!-- AdminLTE for demo purposes -->
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="{{ url_for('static', filename='dist/js/pages/dashboard.js') }}"></script>
+    </section>
+</body>
+</html>
