@@ -3160,8 +3160,11 @@ function initializePage() {
   }
   window.CreateOrderPopupShow = CreateOrderPopupShow;
   window.CreateOrderPopupHide = CreateOrderPopupHide;
+
+  
 }
 
 document.addEventListener("DOMContentLoaded", function () {
   initializePage();
+  
 });
