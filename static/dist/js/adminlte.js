@@ -3166,5 +3166,5 @@ function initializePage() {
 
 document.addEventListener("DOMContentLoaded", function () {
   initializePage();
-  
+
 });
